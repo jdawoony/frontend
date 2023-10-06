@@ -1,0 +1,241 @@
+/* pretendard */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* Setting */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto", 'Pretendard';
+  letter-spacing: -0.03em;
+  color: #1a2947;
+}
+body {
+  background-color: #f6f8fd;
+}
+/* App */
+.App {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+}
+/* basic */
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+/* form-control */
+label {
+  font-size: 17px;
+  width: 30px;
+  line-height: 40px;
+}
+.btn {
+  border: 1px solid #787c85;
+  line-height: 38px;
+  border-radius: 4px;
+  font-size: 15px;
+  display: inline-block;
+  background-color: #1a2947;
+  color: #fff;
+  min-width: 60px;
+  cursor: pointer;
+}
+.form-control {
+  border: 1px solid #ddd;
+  line-height: 40px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 15px;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background-color: #f7f7f7;
+  transition: 0.3s ease;
+}
+.form-control2 {
+  border: 1px solid #ddd;
+  line-height: 30px;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 15px;
+  display: block;
+  width: 100%;
+  padding: 3px 8px;
+  background-color: #fff;
+  transition: 0.3s ease;
+  text-align: center;
+}
+.form-control2.text-left {
+  text-align: left;
+}
+.form-control2:focus-visible,
+.form-control:focus-visible {
+  outline: 0px;
+}
+.form-control2:focus,
+.form-control:focus {
+  border-color: #aaa !important;
+  background-color: #fff;
+}
+/* Header */
+.Header {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+}
+.Header h1 {
+  font-size: 25px;
+  line-height: 1em;
+  font-weight: 700;
+}
+.Header p {
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1em;
+  color: #9ba3b3;
+}
+/* GradeSearch */
+.GradeSearch {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+}
+.GradeSearch > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 300px;
+}
+.GradeSearch select,
+.GradeSearch input {
+  flex: 1;
+}
+.GradeSearch .btn {
+  width: 100px;
+}
+
+/* GradeList */
+.GradeList .topSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.GradeList .topSection h2 {
+  font-size: 22px;
+}
+.GradeList .topSection .btnWrp .btn {
+  margin-left: 5px;
+  color: #1a2947;
+  background-color: transparent;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+/* gradeTable */
+.gradeTableWrp {
+  border-top: 1px solid #97a0a8;
+}
+.gradeTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+.gradeTable tr th,
+.gradeTable tr td {
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #cfd9e3;
+  padding: 8px;
+  background-color: #fff;
+}
+.gradeTable thead tr th {
+  background-color: #ebf0f5;
+  border-bottom-color: #97a0a8;
+  border-top: 0px;
+  font-weight: 700;
+}
+.gradeTable tbody tr td:nth-child(4) {
+  text-align: left;
+}
+td:not(:nth-child(4)) input::placeholder {
+  text-align: center;
+}
+td:not(:nth-child(4)) input:-ms-input-placeholder {
+  text-align: center;
+}
+td:not(:nth-child(4)) input::-webkit-input-placeholder {
+  text-align: center;
+}
+td:not(:nth-child(4)) input::-moz-placeholder {
+  text-align: center;
+}
+.gradeTable tbody tr:last-child td {
+  border-bottom-color: #97a0a8;
+}
+/* .gradeTable tbody tr:hover td:not(.c_rd) {
+  background-color: #f7f7f7;
+} */
+.gradeTable tr .gradeCell {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.gradeTable tr td span {
+  display: inline-block;
+  font-size: 0.7em;
+  color: #fff;
+  background-color: #7585a1;
+  width: 25px;
+  border-radius: 5px;
+  font-weight: 500;
+  line-height: 1em;
+  padding: 4px 0;
+}
+.gradeTable tr td .c_rd {
+  color: #fff;
+  background-color: #f16b6b;
+}
+.gradeTable tr td .passCount {
+  display: inline-block;
+  font-size: .6em;
+  margin-left: 5px;
+  letter-spacing: 1px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 3px 5px;
+  line-height: 1em;
+  vertical-align: middle;
+  border-radius: 5px;
+  color: rgba(26, 41, 71, 0.65);
+}
+.gradeTable tfoot tr td {
+  background-color: #f1f3ff;
+  font-weight: 500;
+  border-bottom-color: #97a0a8;
+  border-top-color: #97a0a8;
+}
+
+/* info */
+.info {
+  margin-top: 10px;
+  color: #b1b1b1;
+  font-size: 13px;
+  font-weight: 400;
+}
+.info i {
+  color: #aaa;
+}
