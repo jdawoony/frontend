@@ -44,6 +44,7 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
             checkedAll(searchList); // 체크박스 토글 동작
             onCreate(newItem);
             resetFrom();
+            alert("추가가 완료되었습니다.");
         }
     }
     const resetFrom = () => {
@@ -52,9 +53,17 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
         onCreateGrade();
         onCancleGreate();
     }
+
+    const onCancleItem = () => {
+        if(window.confirm("작성을 취소하시겠습니까?")){
+            // 취소
+            resetFrom();
+        }
+    }
+
     const setNewItemValue = () =>{ setNewItem(newItem); } // 객체 업데이트
     const onDeleteItem = () =>{ 
-        let count = searchList.filter((item)=>(item.isChecked == true)).length;
+        let count = searchList.filter((item)=>(item.isChecked === true)).length;
         if(count <= 0 ){
             alert("삭제할 데이터를 선택해주세요");
         }else{
@@ -97,7 +106,7 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
 
                         {hide ? "" : <input className="btn" type="button" value="삭제" onClick={onDeleteItem} />}
 
-                        {!hide ? "" : <input className="btn" type="button" value="취소" onClick={resetFrom} />}
+                        {!hide ? "" : <input className="btn" type="button" value="취소" onClick={onCancleItem} />}
 
                         {!hide ? "" : <input className="btn" type="button" value="저장" onClick={onCreateItem} />}
                     </div>
