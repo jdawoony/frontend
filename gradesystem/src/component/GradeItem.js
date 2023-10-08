@@ -1,5 +1,7 @@
+import React from "react";
+
 const GradeItem = ({no, id, classtype, subject, type, require, grades, attendance, assignment, mid, final, isChecked, onUpdate, getResult}) => {
-    const total =  Number(attendance) + Number(assignment) + Number(mid) + Number(final);
+    const total =  attendance + assignment + mid + final;
     const result = (total, grades) => {
         if(grades === 1){
             // 1학점 일때 : P/NP
@@ -39,4 +41,4 @@ const GradeItem = ({no, id, classtype, subject, type, require, grades, attendanc
     );
 }
 
-export default GradeItem;
+export default React.memo(GradeItem);

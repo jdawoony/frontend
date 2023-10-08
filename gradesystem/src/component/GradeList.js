@@ -3,6 +3,7 @@ import GradeItemNoData from "../component/GradeItemNoData"
 import GradeTotal from "../component/GradeTotal"
 import GradeEditor from "../component/GradeEditor"
 import {useState} from "react";
+import React from "react";
 
 const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDelete, onUpdate, onCreateGrade, onCancleGreate, hide, onCreate, checkedAll, refIdx}) => {
     const addedItem = {
@@ -53,8 +54,15 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
     }
     const setNewItemValue = () =>{ setNewItem(newItem); } // 객체 업데이트
     const onDeleteItem = () =>{ 
-        // 삭제
-        onDelete();
+        let count = searchList.filter((item)=>(item.isChecked == true)).length;
+        if(count <= 0 ){
+            alert("삭제할 데이터를 선택해주세요");
+        }else{
+            if(window.confirm("정말 삭제하시겠습니까?")){
+            // 삭제
+                onDelete();
+            }
+        }
      } 
 
     // 학점 표기(A+ ~ F)
@@ -89,7 +97,7 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
 
                         {hide ? "" : <input className="btn" type="button" value="삭제" onClick={onDeleteItem} />}
 
-                        {!hide ? "" : <input className="btn" type="button" value="취소" onClick={onCancleGreate} />}
+                        {!hide ? "" : <input className="btn" type="button" value="취소" onClick={resetFrom} />}
 
                         {!hide ? "" : <input className="btn" type="button" value="저장" onClick={onCreateItem} />}
                     </div>
@@ -133,16 +141,11 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
                         {resultCount===0 ? <GradeItemNoData /> : searchList.map((item)=>(
                             <GradeItem key={item.no} {...item} onUpdate={onUpdate} getResult={getResult} />
                         ))}
-                        
                         {!hide ? "" :
-                        <tr>
                             <GradeEditor selectedClasstype={selectedClasstype} addedItem={addedItem} newItem={newItem} setNewItemValue={setNewItemValue} refIdx={refIdx} />
-                        </tr>
                         }
                     </tbody>
-                    <tfoot>
-                        {resultCount===0 ? "":<GradeTotal searchList={searchList} getResult={getResult}/>}
-                    </tfoot>
+                    {resultCount===0 ? "":<tfoot><GradeTotal searchList={searchList} getResult={getResult}/></tfoot>}
                 </table>
                 
                 {resultCount===0 ? "":<p className="info"><i className="ri-information-line"></i> P/NP 과목은 합계에서 제외하여 계산됩니다.</p>}
@@ -151,4 +154,4 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
     );
 }
 
-export default GradeList;
+export default React.memo(GradeList);

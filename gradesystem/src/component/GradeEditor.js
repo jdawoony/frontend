@@ -1,5 +1,5 @@
-
 import {useState} from "react";
+import React from "react";
 
 const GradeEditor = ({selectedClasstype, newItem, setNewItemValue, refIdx}) => {    
     const [, setType] = useState("");
@@ -67,7 +67,7 @@ const GradeEditor = ({selectedClasstype, newItem, setNewItemValue, refIdx}) => {
         setNewItemValue();
     }
     return(
-        <>
+        <tr>
             <td>
                 <span className="hide">
                     {newItem.no=refIdx.current}
@@ -92,27 +92,27 @@ const GradeEditor = ({selectedClasstype, newItem, setNewItemValue, refIdx}) => {
                 <input type="text" className="form-control2 text-left" onChange={(e) => {setSubject(e.target.value.trim().toLocaleUpperCase()); newItem.subject=e.target.value.trim().toLocaleUpperCase(); updateNewItem();}} placeholder="과목명 입력"/>
             </td>
             <td>
-                <input type="text" className="form-control2 text-left score" onChange={(e) => {onChangeGrades(e); newItem.grades=Number(e.target.value); updateNewItem();}}/>
+                <input type="text" className="form-control2 score" onChange={(e) => {onChangeGrades(e); newItem.grades=Number(e.target.value); updateNewItem();}}/>
             </td>
             <td>
-                <input type="text" className="form-control2 text-left score" onChange={(e) => {checkValue(e, 20, setAttendance); newItem.attendance=Number(e.target.value); updateNewItem();}} placeholder="0"/>
+                <input type="text" className="form-control2 score" onChange={(e) => {checkValue(e, 20, setAttendance); newItem.attendance=Number(e.target.value); updateNewItem();}} placeholder="0"/>
             </td>
             <td>
-                <input type="text" className="form-control2 text-left score" onChange={(e) => {checkValue(e, 20, setAssignment); newItem.assignment=Number(e.target.value); updateNewItem();}} placeholder="0"/>
+                <input type="text" className="form-control2 score" onChange={(e) => {checkValue(e, 20, setAssignment); newItem.assignment=Number(e.target.value); updateNewItem();}} placeholder="0"/>
             </td>
             <td>
-                <input type="text" className="form-control2 text-left score" onChange={(e) => {checkValue(e, 30, setMid); newItem.mid=Number(e.target.value); updateNewItem();}} placeholder="0"/>
+                <input type="text" className="form-control2 score" onChange={(e) => {checkValue(e, 30, setMid); newItem.mid=Number(e.target.value); updateNewItem();}} placeholder="0"/>
             </td>
             <td>
-                <input type="text" className="form-control2 text-left score" onChange={(e) => {checkValue(e, 30,setFinal); newItem.final=Number(e.target.value); updateNewItem();}} placeholder="0"/>
+                <input type="text" className="form-control2 score" onChange={(e) => {checkValue(e, 30,setFinal); newItem.final=Number(e.target.value); updateNewItem();}} placeholder="0"/>
             </td>
             <td>
                 {Number(attendanceVal) + Number(assignmentVal) + Number(midVal) + Number(finalVal)}
             </td>
             <td></td>
             <td></td>
-        </>
+        </tr>
     );
 }
 
-export default GradeEditor;
+export default React.memo(GradeEditor);

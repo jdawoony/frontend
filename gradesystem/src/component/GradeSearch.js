@@ -1,3 +1,5 @@
+import React from "react";
+
 const GradeSearch = () => {
     return(
         <div className="GradeSearch">
@@ -16,4 +18,4 @@ const GradeSearch = () => {
     );
 }
 
-export default GradeSearch;
+export default React.memo(GradeSearch);
