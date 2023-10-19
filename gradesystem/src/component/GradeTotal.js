@@ -25,7 +25,7 @@ const GradeTotal = ({searchList, getResult}) => {
                 </span>
                 {totalGrades}
                 <span className="passCount">
-                    P:{searchList.filter((item)=>((item.attendance + item.assignment + item.mid + item.final) >= 60 && item.grades === 1)).length}
+                    P:{searchList.filter((item)=>(item.isPassType && (item.pass === "P"))).length}
                 </span>
             </td>
             <td>
