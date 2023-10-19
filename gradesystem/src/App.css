@@ -194,6 +194,10 @@ label {
 /* .gradeTable tbody tr:hover td:not(.c_rd) {
   background-color: #f7f7f7;
 } */
+.gradeTable tbody .GradeItem:hover th,
+.gradeTable tbody .GradeItem:hover td {
+  background-color: #f2f7fc;
+}
 .gradeTable tr .gradeCell {
   padding-top: 2px;
   padding-bottom: 2px;

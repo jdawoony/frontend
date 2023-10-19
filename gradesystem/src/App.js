@@ -12,10 +12,12 @@ const mockData = [
     type: "교양",
     require: "선택",
     grades: 1,
-    attendance: 10,
-    assignment: 20,
-    mid: 18,
-    final: 20,
+    attendance: "",
+    assignment: "",
+    mid: "",
+    final: "",
+    isPassType: true,
+    pass: "P",
     isChecked: false,
   },
   {
@@ -29,6 +31,8 @@ const mockData = [
     assignment: 0,
     mid: 0,
     final: 0,
+    isPassType: false,
+    pass: "",
     isChecked: false,
   },
   {
@@ -42,6 +46,8 @@ const mockData = [
     assignment: 20,
     mid: 30,
     final: 30,
+    isPassType: false,
+    pass: "",
     isChecked: false,
   },
   {
@@ -55,6 +61,8 @@ const mockData = [
     assignment: 20,
     mid: 28,
     final: 28,
+    isPassType: false,
+    pass: "",
     isChecked: false,
   },
   {
@@ -68,6 +76,8 @@ const mockData = [
     assignment: 18,
     mid: 25,
     final: 26,
+    isPassType: false,
+    pass: "",
     isChecked: false,
   },
   {
@@ -81,6 +91,8 @@ const mockData = [
     assignment: 20,
     mid: 30,
     final: 30,
+    isPassType: false,
+    pass: "",
     isChecked: false,
   },
 ]
@@ -94,7 +106,7 @@ function App() {
    // 리스트 Sorting
   const sortList = (list) => {    
     // 과목명
-    setTotalList(list.sort((a, b)=>{ return a.require.toLowerCase() < b.subject.toLowerCase() ? -1 : 1; }))
+    setTotalList(list.sort((a, b)=>{ return a.subject.toLowerCase() < b.subject.toLowerCase() ? -1 : 1; }))
     
     // 필수
     setTotalList(list.sort((a, b)=>{ return a.require.toLowerCase() < b.require.toLowerCase() ? -1 : 1; }))

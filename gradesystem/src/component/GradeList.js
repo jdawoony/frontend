@@ -18,6 +18,8 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
         assignment: 0,
         mid: 0,
         final: 0,
+        isPassType: false,
+        pass: "",
         isChecked: false,
     }
     const [newItem, setNewItem] = useState(addedItem); // 생성 객체
@@ -26,6 +28,9 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
     const onCreateItem = () => {
         if(newItem.subject === "" || newItem.type === ""  || newItem.require === "" || newItem.grades <= 0){
             alert("모든 항목이 입력되어야 합니다.");
+            return false;
+        } else if((newItem.pass === "") && newItem.isPassType){
+            alert("P/NP를 선택해주세요");
             return false;
         }
         

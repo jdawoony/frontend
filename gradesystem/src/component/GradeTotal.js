@@ -2,7 +2,6 @@ import React from "react";
 
 const GradeTotal = ({searchList, getResult}) => {
     let totalGrades = 0; // 학점(1학점 제외)
-    let totalGradesFull = 0; // 학점(1학점 포함 촘 합계)
 
     // 1학점을 제외한 객체 리스트 정보
     let realList = searchList.filter((item)=>item.grades !== 1); // 리스트
@@ -19,12 +18,6 @@ const GradeTotal = ({searchList, getResult}) => {
             <td colSpan="4">합계
             </td>
             <td>
-                <span className="hide">
-                {
-                    // 전체 객체 리스트의 학점 합계(1학점 포함)
-                    totalGradesFull = searchList.map((item)=>(item.grades)).reduce(function(prev2, curr2){return prev2 + curr2})
-                }
-                </span>
                 {
                     totalGrades = realList.map((item)=>(item.grades)).reduce(function(prev, curr){return prev + curr})
                 } 
