@@ -18,9 +18,12 @@ const GradeTotal = ({searchList, getResult}) => {
             <td colSpan="4">합계
             </td>
             <td>
+                <span className="hide">
                 {
                     totalGrades = realList.map((item)=>(item.grades)).reduce(function(prev, curr){return prev + curr})
                 } 
+                </span>
+                {totalGrades}
                 <span className="passCount">
                     P:{searchList.filter((item)=>((item.attendance + item.assignment + item.mid + item.final) >= 60 && item.grades === 1)).length}
                 </span>
