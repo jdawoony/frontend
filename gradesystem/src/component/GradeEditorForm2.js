@@ -5,7 +5,8 @@ const GradeEditorForm2 = ({newItem}) => {
     const [passVal, setPass] = useState();
     const getPass = (e) => {
         setPass(e.target.value);
-        if(passVal === ""){
+        if(e.target.value === ""){
+            newItem.pass="";
             return false;
         }else{
             newItem.pass=e.target.value;
