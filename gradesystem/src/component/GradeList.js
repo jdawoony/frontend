@@ -30,7 +30,7 @@ const GradeList = ({selectedClasstype, totalList, searchList, resultCount, onDel
             alert("모든 항목이 입력되어야 합니다.");
             return false;
         } else if((newItem.pass === "") && newItem.isPassType){
-            alert("P/NP를 선택해주세요");
+            alert("성적이 입력되어야 합니다. P/NP를 선택해주세요");
             return false;
         }
         

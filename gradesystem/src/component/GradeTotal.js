@@ -19,7 +19,7 @@ const GradeTotal = ({searchList, getResult}) => {
             </td>
             <td>
                 <span className="hide">
-                {
+                {   realList.length === 0 ? totalGrades=0 :
                     totalGrades = realList.map((item)=>(item.grades)).reduce(function(prev, curr){return prev + curr})
                 } 
                 </span>
@@ -29,27 +29,33 @@ const GradeTotal = ({searchList, getResult}) => {
                 </span>
             </td>
             <td>
-                {totalAttendance = realList.map((item)=>(item.attendance)).reduce(function(prev, curr){return prev + curr})}
+                {realList.length === 0 ? totalAttendance=0 : totalAttendance = realList.map((item)=>(item.attendance)).reduce(function(prev, curr){return prev + curr})}
             </td>
             <td>
-                {totalAssignment = realList.map((item)=>(item.assignment)).reduce(function(prev, curr){return prev + curr})}
+                {realList.length === 0 ? totalAssignment=0 : totalAssignment = realList.map((item)=>(item.assignment)).reduce(function(prev, curr){return prev + curr})}
             </td>
             <td>
-                {totalMid = realList.map((item)=>(item.mid)).reduce(function(prev, curr){return prev + curr})}
+                {realList.length === 0 ? totalMid=0 :
+                 totalMid = realList.map((item)=>(item.mid)).reduce(function(prev, curr){return prev + curr})}
             </td>
             <td>
-                {totalFinal = realList.map((item)=>(item.final)).reduce(function(prev, curr){return prev + curr})}
+                {realList.length === 0 ? totalFinal=0 :
+                 totalFinal = realList.map((item)=>(item.final)).reduce(function(prev, curr){return prev + curr})}
             </td>
             <td>
-                {totalResult = totalAttendance + totalAssignment + totalMid + totalFinal}
+                {realList.length === 0 ? totalResult=0 : 
+                 totalResult = totalAttendance + totalAssignment + totalMid + totalFinal}
             </td>
             <td>
-                {totalAverage= (totalResult/realList.length).toFixed(2)}
+                {realList.length === 0 ? totalAverage=0 : 
+                 totalAverage= (totalResult/realList.length).toFixed(2)}
             </td>
             <td className="gradeCell">
+                {realList.length === 0 ? "" :
                 <span className={getResult(totalAverage) === "F" ? "c_rd" : ""}>
                     {getResult(totalAverage)}
                 </span>
+                }
             </td>
         </tr>
     );
